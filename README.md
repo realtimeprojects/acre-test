@@ -6,6 +6,5 @@ See https://github.com/realtimeprojects/acre
 
 - install acre (see link above)
 - run
-
         cd acre-test
         acre
