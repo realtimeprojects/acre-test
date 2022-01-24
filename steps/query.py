@@ -1,17 +1,20 @@
-from selenium.webdriver.common.by import By
+import time
 
-from radish import then
-from radish import world
+from radish import then, when
+
+from controls import Input, Link
 
 
-@then("I search for '{text}'")
+@when("I search for '{text}'")
 def i_see_the_title(step, text):
-    print(f"I search for {text}")
-    box = world.webdriver.find_element(By.XPATH, "//input")
-    print(f"found box: {box}")
-    box.send_keys(text)
-    print("searching button")
-    button = world.webdriver.find_element(By.XPATH,
-        "//span[contains(class, 'js-jump-to-badge-search-text-global')]")
-    print("click button")
+    searchbox = Input(cssclass="js-search-input")
+    searchbox.input(text)
+
+    button = Input(cssclass='js-search-button')
     button.click()
+
+
+@then("I see the link '{text}'")
+def i_see_the_link(step, text):
+    Link(text=text).locate()
+    time.sleep(5)
