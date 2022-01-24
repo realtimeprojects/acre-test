@@ -1,4 +1,5 @@
 import time
+import re
 
 from radish import then, when
 
@@ -14,7 +15,11 @@ def i_see_the_title(step, text):
     button.click()
 
 
-@then("I see the link '{text}'")
-def i_see_the_link(step, text):
-    Link(text=text).locate()
+@then(re.compile(r"I (see|follow) the link '(.*)'"))
+def i_see_the_link(step, command, text):
+    link = Link(text=text)
+    link.locate()
+    if command == 'follow':
+        link.click()
+
     time.sleep(5)
