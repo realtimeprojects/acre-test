@@ -9,9 +9,9 @@ def i_see_the_title(step, text):
     print(f"I search for {text}")
     box = world.webdriver.find_element(By.XPATH, "//input")
     print(f"found box: {box}")
-    box.input(text)
+    box.send_keys(text)
     print("searching button")
     button = world.webdriver.find_element(By.XPATH,
-        "//button[contains(., 'search')")
+        "//span[contains(class, 'js-jump-to-badge-search-text-global')]")
     print("click button")
     button.click()
