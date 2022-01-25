@@ -17,7 +17,7 @@ jobs:
     - name: configure
       uses: actions/checkout@v2
       with:
-        repository: acre
+        repository: realtimeprojects/acre
         ref: master
 
     - name: Run check
