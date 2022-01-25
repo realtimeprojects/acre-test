@@ -1,0 +1,30 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master, branches/query ]
+  pull_request:
+    branches: [ master, branches/query ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: acre-test
+    
+    - name: configure
+      uses: actions/checkout@v2
+      with:
+        repository: realtimeprojects/acre
+        path: acre
+        ref: master
+
+    - name: Run check
+      run: cd acre-test && ../acre/bin/acre
+      
+    - name: Run distcheck
+      run: make distcheck
