@@ -13,15 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: acre-test
     
     - name: configure
       uses: actions/checkout@v2
       with:
         repository: realtimeprojects/acre
+        path: acre
         ref: master
 
     - name: Run check
-      run: acre/bin/acre
+      run: cd acre-test && ../acre/bin/acre
       
     - name: Run distcheck
       run: make distcheck
