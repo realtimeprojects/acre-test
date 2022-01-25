@@ -15,8 +15,11 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: configure
-      run: git clone git@github.com:realtimeprojects/acre.git
-      
+      uses: actions/checkout@v2
+      with:
+        repository: acre
+        ref: master
+
     - name: Run check
       run: acre/bin/acre
       
