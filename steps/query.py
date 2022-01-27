@@ -3,7 +3,7 @@ import re
 
 from radish import then, when
 
-from controls import Input, Link
+from controls import Input, Link, Button
 
 
 @when("I search for '{text}'")
@@ -23,3 +23,9 @@ def i_see_the_link(step, command, text):
         link.click()
 
     time.sleep(5)
+
+@then("I click on the button '{name}'")
+def i_click_on_button(step, name):
+    button = Button(text=name)
+    button.click()
+    time.sleep(10)
