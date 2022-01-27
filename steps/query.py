@@ -1,9 +1,9 @@
 import time
 import re
 
-from radish import then, when
+from radish import then, when, world
 
-from controls import Input, Link, Button
+from controls import Input, Link, Button, Control
 
 
 @when("I search for '{text}'")
@@ -24,8 +24,42 @@ def i_see_the_link(step, command, text):
 
     time.sleep(5)
 
+
 @then("I click on the button '{name}'")
 def i_click_on_button(step, name):
     button = Button(text=name)
     button.click()
     time.sleep(10)
+
+
+@when("I login to my account")
+def i_login(step):
+    # print(f"Login to my account {account_name}")
+    email = "hazem.a.ahmed@gmail.com"
+    account_pass = "HazemIbrahim1"
+    link = Link(text="Login")
+    link.click()
+    time.sleep(5)
+    username = Input(id="signInName")
+    username.input(email)
+    password = Input(id="password")
+    password.input(account_pass)
+    time.sleep(5)
+    button = Button(text="Sign in")
+    button.click()
+    time.sleep(10)
+
+
+@then("I see my Dashboard page")
+def i_see_element(step):
+    dashboard = Control(text="Dashboard")
+    dashboard.locate()
+    time.sleep(5)
+
+
+@when("I logout from my account")
+def i_logout(step):
+    control = \
+        Control("//div[@class='header-controls']//li[@class='ng-star-inserted']")
+    control.click()
+    time.sleep(5)

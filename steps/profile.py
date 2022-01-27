@@ -1,12 +1,13 @@
 from time import sleep
-import re
+from radish import then, when, world
 
-from radish import then, when
+from controls import Input, Link, Button
 
-from controls import Input, Link
-
-
+'''
 @when("I login to 'account_name' account")
-def i_see_the_title(step, account_name):
-    email = "hazem.a.ahmed@gmail.com"
-    password = "HazemIbrahim1"
+def i_login_logout(step, account_name):
+    print(f"Login to my account {account_name}")
+    email = world.config.user_data[EMAIL]
+    password = world.config.user_data[PASSWORD]
+    sleep(5)
+'''

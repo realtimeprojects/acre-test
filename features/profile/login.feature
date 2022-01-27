@@ -1,5 +1,6 @@
 @tid:9009
 @login
+@profile
 Feature: Login to my account
     login then logout to my account
 
@@ -9,8 +10,10 @@ Feature: Login to my account
         Then I see 'ZEISS Hunting' in the page title
         Then I click on the button 'Accept all'
 
-        # When I login to Hazem profile
-        # Then I agree to the privacy Agreement
-        # Then I see my Dashboard page
+        When I login to my account
+        Then I see my Dashboard page
+
+        When I logout from my account
+
 
         Then I close the browser
