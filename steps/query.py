@@ -60,6 +60,10 @@ def i_see_element(step):
 @when("I logout from my account")
 def i_logout(step):
     control = \
-        Control("//div[@class='header-controls']//li[@class='ng-star-inserted']")
+        Control("div[@class='header-controls']//li[@class='ng-star-inserted']")
     control.click()
+    time.sleep(5)
+    button = Control(tag='span', text="Log out")
+    button.locate()
+    button.click()
     time.sleep(5)
