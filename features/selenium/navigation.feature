@@ -1,4 +1,4 @@
-@tid:9002
+@tid:9004
 @regression
 Feature: Navigate in the browser
     In order to test web applications

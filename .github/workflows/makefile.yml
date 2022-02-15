@@ -2,9 +2,9 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, branches/query ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, branches/query ]
 
 jobs:
   build:
@@ -28,3 +28,5 @@ jobs:
       
     - name: Run distcheck
       run: make distcheck
+
+
