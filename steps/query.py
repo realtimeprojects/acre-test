@@ -3,7 +3,7 @@ import re
 
 from radish import then, when
 
-from controls import Input, Link
+from acre.controls import Input, Link
 
 
 @when("I search for '{text}'")
