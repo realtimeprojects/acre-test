@@ -5,7 +5,7 @@ Feature: Search for data
     Search for data
 
     Scenario: search for huhu
-        Given I start the chromium browser
+        Given I start the browser
         When I navigate to 'http://www.duckduckgo.com'
         Then I see 'DuckDuckGo' in the page title
 
