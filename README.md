@@ -1,6 +1,6 @@
 # self tests for acre
 
-See https://github.com/realtimeprojects/acre
+See https://github.com/realtimeprojects/acre-docker
 
 # quickstart
 
@@ -8,4 +8,4 @@ See https://github.com/realtimeprojects/acre
 - run
 
         cd acre-test
-        acre
+        acre features/*
