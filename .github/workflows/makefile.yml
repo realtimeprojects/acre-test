@@ -24,7 +24,7 @@ jobs:
     - name: run acre-tests
       run: |
         cd acre-test
-        acre run features/*
+        acre run --noterm features/*
         
       
 
