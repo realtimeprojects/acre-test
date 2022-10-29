@@ -16,17 +16,16 @@ jobs:
       with:
         path: acre-test
     
-    - name: configure
-      uses: actions/checkout@v2
-      with:
-        repository: realtimeprojects/acre
-        path: acre
-        ref: master
+    - name: install and initialise acre
+      run: |
+        python3 -m pip install git+https://github.com/realtimeprojects/acre-cli.git
+        acre init
 
-    - name: Run check
-      run: cd acre-test && ../acre/bin/acre
+    - name: run acre-tests
+      run: |
+        cd acre-test
+        acre run features/*
+        
       
-    - name: Run distcheck
-      run: make distcheck
 
 
